@@ -8,7 +8,7 @@ router.post('/challenges', verifyToken, requireAdmin, (req, res) => {
     const { title, description, difficulty } = req.body;
 
     const sql = `
-        INSERT INTO Challenges (title, description, difficulty)
+        INSERT INTO challenges (title, description, difficulty)
         VALUES (?, ?, ?)
     `;
 
@@ -24,7 +24,7 @@ router.post('/challenges', verifyToken, requireAdmin, (req, res) => {
 
 //عرض التحديات
 router.get('/challenges', (req, res) => {
-    db.query('SELECT * FROM Challenges', (err, result) => {
+    db.query('SELECT * FROM challenges', (err, result) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -37,7 +37,7 @@ router.post('/submit', (req, res) => {
     const { user_id, challenge_id, solution_text, solution_link } = req.body;
 
     const sql = `
-        INSERT INTO Submissions (user_id, challenge_id, solution_text, solution_link)
+        INSERT INTO submissions (user_id, challenge_id, solution_text, solution_link)
         VALUES (?, ?, ?, ?)
     `;
 
@@ -53,7 +53,7 @@ router.post('/submit', (req, res) => {
 
 //عرض الحلول
 router.get('/submissions', (req, res) => {
-    db.query('SELECT * FROM Submissions', (err, result) => {
+    db.query('SELECT * FROM submissions', (err, result) => {
         if (err) {
             return res.status(500).send(err);
         }
