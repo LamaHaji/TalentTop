@@ -8,7 +8,7 @@ router.post('/evaluate', verifyToken, requireAdmin, (req, res) => {
     const { submission_id, score, feedback } = req.body;
 
     const sql = `
-        INSERT INTO Evaluations (submission_id, score, feedback)
+        INSERT INTO evaluations (submission_id, score, feedback)
         VALUES (?, ?, ?)
     `;
 
@@ -24,7 +24,7 @@ router.post('/evaluate', verifyToken, requireAdmin, (req, res) => {
 
 //عرض التقييمات
 router.get('/evaluations', (req, res) => {
-    db.query('SELECT * FROM Evaluations', (err, result) => {
+    db.query('SELECT * FROM evaluations', (err, result) => {
         if (err) {
             return res.status(500).send(err);
         }
