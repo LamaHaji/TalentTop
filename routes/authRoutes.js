@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
     const { email, password } = req.body;
 
     const sql = `
-        SELECT * FROM Users
+        SELECT * FROM users
         WHERE email = ?
     `;
 

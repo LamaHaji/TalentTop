@@ -6,8 +6,8 @@ const db = require('../config/db');
 router.get('/leaderboard', (req, res) => {
     const sql = `
         SELECT Users.id, Users.username, SUM(Evaluations.score) AS total_points
-        FROM Users
-        JOIN Submissions ON Users.id = Submissions.user_id
+        FROM users
+        JOIN submissions ON Users.id = submissions.user_id
         JOIN Evaluations ON Submissions.id = Evaluations.submission_id
         GROUP BY Users.id
         ORDER BY total_points DESC
@@ -33,7 +33,7 @@ router.get('/profile/:id', (req, res) => {
             Users.username,
             COUNT(DISTINCT Submissions.id) AS total_submissions,
             IFNULL(SUM(Evaluations.score), 0) AS total_points
-        FROM Users
+        FROM users
         LEFT JOIN Submissions ON Users.id = Submissions.user_id
         LEFT JOIN Evaluations ON Submissions.id = Evaluations.submission_id
         WHERE Users.id = ?
