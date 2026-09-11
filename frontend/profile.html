@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TalentTop - Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====== Header المشترك ====== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">🚀 TalentTop</a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="challenges.html" class="nav-link">Challenges</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="admin.html" class="nav-link admin-link" id="adminNavLink" style="display:none;">Admin</a>
+            </nav>
+            <div class="header-auth">
+                <div id="headerLoggedOut">
+                    <a href="auth.html" class="header-login-btn">Login</a>
+                </div>
+                <div id="headerLoggedIn" style="display:none;">
+                    <span id="headerUsername"></span>
+                    <button onclick="logout()" class="header-logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h1 class="page-title" style="color:#1F2937; text-shadow:none;">👤 My Profile</h1>
+        <p class="page-subtitle" style="color:#6B7280;">Track your progress and achievements</p>
+
+        <div class="card"><h1>Profile Details</h1>
+        <p style="font-size:12px;color:#6B7280;margin-bottom:10px;">Showing your own profile automatically. Enter a different User ID to look up someone else.</p>
+        <input id="profileId" placeholder="User ID"><br>
+        <button onclick="loadProfile()">Load Profile</button>
+        <div id="profileResult"></div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 TalentTop — Made with 💙 for young coders</p>
+    </footer>
+
+    <!-- الروبوت المرافق -->
+    <div class="mascot-wrapper">
+        <div class="mascot-bubble" id="mascotBubble">Click me for a tip! 💬</div>
+        <div class="mascot-robot" id="mascotRobot" onclick="showMascotMessage()">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="26" width="44" height="30" rx="10" fill="#E5E7EB"/>
+                <circle cx="30" cy="16" r="16" fill="#F3F4F6"/>
+                <circle cx="22" cy="14" r="4" fill="#14B8A6"/>
+                <circle cx="38" cy="14" r="4" fill="#14B8A6"/>
+                <rect x="20" y="24" width="20" height="4" rx="2" fill="#9CA3AF"/>
+                <line x1="30" y1="-2" x2="30" y2="4" stroke="#9CA3AF" stroke-width="3"/>
+                <circle cx="30" cy="-4" r="4" fill="#F97316"/>
+            </svg>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

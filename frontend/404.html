@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TalentTop - Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====== Header المشترك ====== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">🚀 TalentTop</a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="challenges.html" class="nav-link">Challenges</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="admin.html" class="nav-link admin-link" id="adminNavLink" style="display:none;">Admin</a>
+            </nav>
+            <div class="header-auth">
+                <div id="headerLoggedOut">
+                    <a href="auth.html" class="header-login-btn">Login</a>
+                </div>
+                <div id="headerLoggedIn" style="display:none;">
+                    <span id="headerUsername"></span>
+                    <button onclick="logout()" class="header-logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="not-found-box">
+            <div class="not-found-emoji">🤖</div>
+            <h1 class="not-found-title">404</h1>
+            <p class="not-found-text">Oops! This page took a wrong turn.</p>
+            <a href="index.html"><button>Back to Home 🏠</button></a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 TalentTop — Made with 💙 for young coders</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
