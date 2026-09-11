@@ -5,11 +5,11 @@ const db = require('../config/db');
 //لوحة المتصدرين
 router.get('/leaderboard', (req, res) => {
     const sql = `
-        SELECT Users.id, Users.username, SUM(Evaluations.score) AS total_points
+        SELECT users.id, users.username, SUM(evaluations.score) AS total_points
         FROM users
-        JOIN submissions ON Users.id = submissions.user_id
-        JOIN Evaluations ON Submissions.id = Evaluations.submission_id
-        GROUP BY Users.id
+        JOIN submissions ON users.id = submissions.user_id
+        JOIN evaluations ON submissions.id = evaluations.submission_id
+        GROUP BY users.id
         ORDER BY total_points DESC
     `;
 
@@ -29,15 +29,15 @@ router.get('/profile/:id', (req, res) => {
 
     const sql = `
         SELECT 
-            Users.id,
-            Users.username,
-            COUNT(DISTINCT Submissions.id) AS total_submissions,
-            IFNULL(SUM(Evaluations.score), 0) AS total_points
+            users.id,
+            users.username,
+            COUNT(DISTINCT submissions.id) AS total_submissions,
+            IFNULL(SUM(evaluations.score), 0) AS total_points
         FROM users
-        LEFT JOIN Submissions ON Users.id = Submissions.user_id
-        LEFT JOIN Evaluations ON Submissions.id = Evaluations.submission_id
-        WHERE Users.id = ?
-        GROUP BY Users.id
+        LEFT JOIN submissions ON users.id = submissions.user_id
+        LEFT JOIN evaluations ON submissions.id = evaluations.submission_id
+        WHERE users.id = ?
+        GROUP BY users.id
     `;
 
     db.query(sql, [userId], (err, result) => {
