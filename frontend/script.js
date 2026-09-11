@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:3000";
-
+const API_URL = "";
 // تسجيل
 function register() {
     const username = document.getElementById('username').value;
